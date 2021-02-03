@@ -5,8 +5,7 @@ using System.Text;
 
 namespace DataAccess.Abstract
 {
-    public interface IProductDAL:IEntityRepository<Product>
+    public interface ICustomerDAL:IEntityRepository<Customer>
     {
-        
     }
 }
