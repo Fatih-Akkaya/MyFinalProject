@@ -16,7 +16,7 @@ namespace ConsoleUI
         private static void CategoryTest()
         {
             CategoryManager categoryManager = new CategoryManager(new EFCategoryDAL());
-            foreach (var category in categoryManager.GetAll())
+            foreach (var category in categoryManager.GetAll().Data)
             {
                 Console.WriteLine(category.CategoryName);
             }
@@ -24,7 +24,8 @@ namespace ConsoleUI
 
         private static void ProductTest()
         {
-            ProductManager productManager = new ProductManager(new EFProductDAL());
+            ProductManager productManager = new ProductManager(new EFProductDAL(),
+                new CategoryManager(new EFCategoryDAL()));
             var result = productManager.GetProductDetails();
             if (result.Success)
             {
